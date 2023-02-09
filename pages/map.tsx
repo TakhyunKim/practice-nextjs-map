@@ -1,4 +1,15 @@
 import Head from "next/head";
+import { GoogleMap, LoadScript } from "@react-google-maps/api";
+
+const containerStyle = {
+  width: "400px",
+  height: "400px",
+};
+
+const center = {
+  lat: -3.745,
+  lng: -38.523,
+};
 
 export default function Map() {
   return (
@@ -9,7 +20,15 @@ export default function Map() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>Map Page 입니다.</main>
+      <main>
+        <LoadScript googleMapsApiKey="GOOGLE_MAPS_API_KEY">
+          <GoogleMap
+            mapContainerStyle={containerStyle}
+            center={center}
+            zoom={10}
+          />
+        </LoadScript>
+      </main>
     </>
   );
 }
