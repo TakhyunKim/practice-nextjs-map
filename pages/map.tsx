@@ -21,7 +21,13 @@ export default function Map() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <LoadScript googleMapsApiKey="GOOGLE_MAPS_API_KEY">
+        <LoadScript
+          googleMapsApiKey={
+            process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY
+              ? process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY
+              : ""
+          }
+        >
           <GoogleMap
             mapContainerStyle={containerStyle}
             center={center}
