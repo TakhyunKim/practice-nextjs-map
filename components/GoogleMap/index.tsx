@@ -1,5 +1,7 @@
 import { GoogleMap, LoadScript } from "@react-google-maps/api";
 
+import { mapStyles } from "./googleMapStyles";
+
 const containerStyle = {
   width: "400px",
   height: "400px",
@@ -19,7 +21,12 @@ const GooglMap = () => {
           : ""
       }
     >
-      <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10} />
+      <GoogleMap
+        zoom={10}
+        center={center}
+        options={{ styles: mapStyles }}
+        mapContainerStyle={containerStyle}
+      />
     </LoadScript>
   );
 };
