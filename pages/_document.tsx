@@ -1,4 +1,5 @@
-import { Html, Head, Main, NextScript } from 'next/document'
+import Script from "next/script";
+import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
   return (
@@ -7,7 +8,11 @@ export default function Document() {
       <body>
         <Main />
         <NextScript />
+        <Script
+          strategy="beforeInteractive"
+          src={`https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${process.env.NEXT_PUBLIC_NAVER_MAP_KEY}`}
+        ></Script>
       </body>
     </Html>
-  )
+  );
 }
